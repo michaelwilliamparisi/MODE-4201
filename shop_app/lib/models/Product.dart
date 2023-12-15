@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Product {
-  final String image, title, description;
+  final String image, title, description, transmission;
   final int price, year, id;
   final Color color;
 
@@ -12,7 +12,8 @@ class Product {
       required this.price,
       required this.year,
       required this.id,
-      required this.color});
+      required this.color,
+      required this.transmission});
 }
 
 List<Product> products = [
@@ -21,6 +22,7 @@ List<Product> products = [
       title: "Blue Acura",
       price: 5000,
       year: 2005,
+      transmission: "Manual",
       description: dummyText,
       image: "assets/images/AcuraBlue.jpg",
       color: Color.fromARGB(255, 45, 48, 38)),
@@ -29,6 +31,7 @@ List<Product> products = [
       title: "Clapped Chevey Malibu",
       price: 2500,
       year: 2004,
+      transmission: "Automatic",
       description: dummyText,
       image: "assets/images/BipolerMalibu.jpg",
       color: Color.fromARGB(255, 98, 34, 141)),
@@ -37,6 +40,7 @@ List<Product> products = [
       title: "Honda Del Soul",
       price: 10000,
       year: 1992,
+      transmission: "El Manual",
       description: dummyText,
       image: "assets/images/DelSoul.jpg",
       color: Color.fromARGB(255, 145, 46, 46)),
@@ -45,6 +49,7 @@ List<Product> products = [
       title: "Combo Deal Subi+Stang",
       price: 15000,
       year: 2000,
+      transmission: "Automatic",
       description: dummyText,
       image: "assets/images/ForesterMustang.jpg",
       color: Color.fromARGB(255, 129, 127, 20)),
@@ -53,6 +58,7 @@ List<Product> products = [
       title: "Mustang Boss",
       price: 45000,
       year: 2017,
+      transmission: "Automatic",
       description: dummyText,
       image: "assets/images/MustangeBlue.jpg",
       color: Color.fromARGB(255, 45, 57, 226)),
@@ -61,6 +67,7 @@ List<Product> products = [
       title: "Dodge Warthog",
       price: 80000,
       year: 2020,
+      transmission: "Automatic",
       description: dummyText,
       image: "assets/images/DodgeTruck.jpg",
       color: Color(0xFFAEAEAE)),

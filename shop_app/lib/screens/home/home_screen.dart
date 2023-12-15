@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/screens/home/components/body.dart';
+import 'package:shop_app/screens/home/setting_page.dart';
 
-import '../../models/Product.dart';
+import 'add_page.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -18,28 +18,49 @@ class HomeScreen extends StatelessWidget {
     return AppBar(
       backgroundColor: Colors.blue,
       elevation: 0,
-      leading: IconButton(
-        icon: SvgPicture.asset(
-          "assets/icons/back-svgrepo-com.svg",
-          colorFilter: ColorFilter.mode(kTextColor, BlendMode.srcIn),
+      leading: const DefaultTextStyle(
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 18.0, // Adjust the font size as needed
+          color: Colors.white,
         ),
-        onPressed: () {},
+        textAlign: TextAlign.center,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        softWrap: false,
+        child: Center(
+          child: Text(
+            "VRM",
+          ),
+        ),
       ),
       actions: <Widget>[
-        IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/search-svgrepo-com.svg",
-            colorFilter: ColorFilter.mode(kTextColor, BlendMode.srcIn),
-          ),
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/cart-shopping-svgrepo-com.svg",
-            colorFilter: ColorFilter.mode(kTextColor, BlendMode.srcIn),
-          ),
-          onPressed: () {},
-        ),
+        Builder(builder: (context) {
+          return IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FirstRoute(),
+                ),
+              );
+            },
+          );
+        }),
+        Builder(builder: (context) {
+          return IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SettingRoute(),
+                ),
+              );
+            },
+          );
+        }),
         SizedBox(width: kDefaultPaddin / 2)
       ],
     );

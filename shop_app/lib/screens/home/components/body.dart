@@ -5,6 +5,7 @@ import 'package:shop_app/screens/home/components/caterorries.dart';
 import 'package:shop_app/screens/home/components/item_card.dart';
 
 import '../../details/details_screen.dart';
+import '../home_screen.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -35,13 +36,16 @@ class Body extends StatelessWidget {
                 childAspectRatio: 0.75,
               ),
               itemBuilder: (context, index) => ItemCard(
-                  product: products[index],
-                  press: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DetailsScreen(
-                                product: products[index],
-                              )))),
+                product: products[index],
+                press: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailsScreen(
+                      product: products[index],
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
         ),

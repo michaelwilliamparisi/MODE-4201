@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/models/Product.dart';
 
+import 'add_to_cart_and_buy_btn.dart';
+import 'color_and_trans.dart';
+import 'description.dart';
 import 'product_title_with_image.dart';
 
 class Body extends StatelessWidget {
@@ -27,7 +30,7 @@ class Body extends StatelessWidget {
                       left: kDefaultPaddin,
                       right: kDefaultPaddin),
                   //height: 500,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(24),
@@ -36,26 +39,9 @@ class Body extends StatelessWidget {
                   ),
                   child: Column(
                     children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Column(
-                            children: <Widget>[
-                              Text("Color\n"),
-                              ColorDot(
-                                color: Color(0xFF356C95),
-                              )
-                            ],
-                          ),
-                          RichText(
-                            text: TextSpan(
-                              style: TextStyle(color: kTextColor),
-                              children: [
-                                TextSpan(text: "Transmission"),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                      ColorAndTrans(product: product),
+                      Description(product: product),
+                      Add_To_Cart_And_Buy_Btn(product: product)
                     ],
                   ),
                 ),
@@ -64,39 +50,6 @@ class Body extends StatelessWidget {
             ),
           )
         ],
-      ),
-    );
-  }
-}
-
-class ColorDot extends StatelessWidget {
-  final Color color;
-  final bool isSelected;
-  const ColorDot({
-    super.key,
-    required this.color,
-    this.isSelected = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin:
-          EdgeInsets.only(top: kDefaultPaddin / 4, right: kDefaultPaddin / 2),
-      padding: EdgeInsets.all(2.5),
-      height: 24,
-      width: 24,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(
-          color: color,
-        ),
-      ),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: color,
-          shape: BoxShape.circle,
-        ),
       ),
     );
   }
